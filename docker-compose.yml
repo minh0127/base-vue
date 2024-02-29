@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+    vue:
+        container_name: highfive_vue
+        build:
+            dockerfile: docker/vue/Dockerfile
+            context: .
+        ports:
+            - 3000:3000
+            - 24678:24678
+        volumes:
+            - .:/var/www/
+
+#    nginx:
+#        build:
+#            dockerfile: docker/nginx/Dockerfile
+#            context: .
+#        ports:
+#            - 8400:8400
+#        volumes:
+#            - .:/var/www/
+#        depends_on:
+#            - vue
+#        links:
+#            - vue
