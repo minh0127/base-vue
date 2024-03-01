@@ -26,25 +26,24 @@
   </main>
 </template>
 <script setup>
-import store from '@/store';
 import { formatDate } from '@/utils/date';
-import { computed, ref, watch } from 'vue';
+// import { ref } from 'vue';
 import Pagination from '@/components/Pagination/index.vue';
 import router from '@/router';
 
-const page = ref(1);
+// const page = ref(1);
 
-const setPage = (value) => {
-  page.value = value;
-};
-watch(
-  page,
-  (page) => {
-    store.dispatch('carStore/getCars', { page });
-  },
-  { immediate: true }
-);
-const data = computed(() => {
-  return store.getters.car;
-});
+// const setPage = (value) => {
+//   page.value = value;
+// };
+// watch(
+//   page,
+//   (page) => {
+//     store.dispatch('carStore/getCars', { page });
+//   },
+//   { immediate: true },
+// );
+// const data = computed(() => {
+//   return store.getters.car;
+// });
 </script>

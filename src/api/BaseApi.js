@@ -1,3 +1,4 @@
+import { HttpError, HttpResponse } from '@/utils/http';
 import request from '@/utils/request';
 
 export default class BaseApi {
@@ -6,37 +7,48 @@ export default class BaseApi {
     this.axios = request;
   }
 
-  get(param = []) {
-    return this.axios
-      .get(this.baseUrl, {
-        params: param,
-      })
-      .catch((error) => {
-        throw new Error(error);
-      });
+  async get(params = {}) {
+    try {
+      const response = await this.axios.get(this.baseUrl, { params });
+      return new HttpResponse(response);
+    } catch (error) {
+      return new HttpError(error);
+    }
   }
 
-  find(id) {
-    return this.axios.get(this.baseUrl + `/${id}`).catch((error) => {
-      throw new Error(error);
-    });
+  async find(id) {
+    try {
+      const response = await this.axios.get(this.baseUrl + `/${id}`);
+      return new HttpResponse(response);
+    } catch (error) {
+      return new HttpError(error);
+    }
   }
 
-  store(createData) {
-    return this.axios.post(this.baseUrl, createData).catch((error) => {
-      throw error;
-    });
+  async store(createData) {
+    try {
+      const response = await this.axios.post(this.baseUrl, createData);
+      return new HttpResponse(response);
+    } catch (error) {
+      return new HttpError(error);
+    }
   }
 
-  update(id, data) {
-    return this.axios.patch(this.baseUrl + `/${id}`, data).catch((error) => {
-      throw error;
-    });
+  async update(id, data) {
+    try {
+      const response = await this.axios.patch(this.baseUrl + `/${id}`, data);
+      return new HttpResponse(response);
+    } catch (error) {
+      return new HttpError(error);
+    }
   }
 
-  destroy(id) {
-    return this.axios.delete(this.baseUrl + `/${id}`).catch((error) => {
-      throw new Error(error);
-    });
+  async destroy(id) {
+    try {
+      const response = await this.axios.delete(this.baseUrl + `/${id}`);
+      return new HttpResponse(response);
+    } catch (error) {
+      return new HttpError(error);
+    }
   }
 }

@@ -179,7 +179,7 @@ watch(
     await store.dispatch('carStore/getCars', { params: filterParams });
     loading.value = false;
   },
-  { immediate: true }
+  { immediate: true },
 );
 
 const data = computed(() => {

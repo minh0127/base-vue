@@ -111,7 +111,7 @@ watch(
   (page) => {
     store.dispatch('categoryStore/getCategory', { page });
   },
-  { immediate: true }
+  { immediate: true },
 );
 
 const data = computed(() => {

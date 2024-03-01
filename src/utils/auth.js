@@ -1,15 +1,10 @@
 import router from '@/router';
 import Cookies from 'js-cookie';
-// import axios from 'axios';
 
 const tokenKey = 'token';
 
 export function isLogged() {
-  // console.log('check token');
-  if (getToken() === undefined) {
-    return false;
-  }
-  return true;
+  return !!getToken();
 }
 
 export function setToken(token) {
