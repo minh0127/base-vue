@@ -1,4 +1,4 @@
-import { SUCCESS_STATUS_CODE } from '@/utils/constants/status-code';
+import { CREATED_STATUS_CODE, SUCCESS_STATUS_CODE } from '@/utils/constants/status-code';
 
 export class HttpError {
   constructor(error) {
@@ -13,7 +13,9 @@ export class HttpError {
     return this.error.response.status;
   }
 
-  isSuccessResponse() {
-    return this.getStatusCode() === SUCCESS_STATUS_CODE;
+  isSuccess() {
+    return (
+      this.getStatusCode() === CREATED_STATUS_CODE || this.getStatusCode() === SUCCESS_STATUS_CODE
+    );
   }
 }

@@ -1,4 +1,5 @@
 <template>
+  <button @click="errorTest">Error Test</button>
   <main>
     <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 px-32 lg:px-60">
       <el-card :body-style="{ padding: '0px' }" v-for="(car, index) in data" :key="index">
@@ -28,8 +29,9 @@
 <script setup>
 import { formatDate } from '@/utils/date';
 // import { ref } from 'vue';
-import Pagination from '@/components/Pagination/index.vue';
-import router from '@/router';
+// import Pagination from '@/components/Pagination/index.vue';
+// import router from '@/router';
+import { computed } from 'vue';
 
 // const page = ref(1);
 
@@ -43,7 +45,16 @@ import router from '@/router';
 //   },
 //   { immediate: true },
 // );
-// const data = computed(() => {
-//   return store.getters.car;
-// });
+const data = computed(() => {
+  return [];
+  // return store.getters.car;
+});
+
+function setPage(value) {
+  console.log(value);
+}
+
+function errorTest() {
+  throw new Error('hihi');
+}
 </script>

@@ -1,9 +1,12 @@
 <script setup>
 import { RouterView } from 'vue-router';
+import { ErrorBoundary } from '@/hoc';
 </script>
 
 <template>
-  <RouterView />
+  <ErrorBoundary>
+    <RouterView />
+  </ErrorBoundary>
 </template>
 
 <style scoped></style>
