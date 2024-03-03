@@ -28,7 +28,7 @@ const routes = [
   {
     path: '/admin',
     component: AdminLayout,
-    meta: { requiresAuth: true }, // Đánh dấu route admin yêu cầu đăng nhập
+    meta: { requiresAuth: true },
     children: [
       {
         path: '',
