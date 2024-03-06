@@ -2,15 +2,15 @@ import { CREATED_STATUS_CODE, SUCCESS_STATUS_CODE } from '@/utils/constants/stat
 
 export class HttpError {
   constructor(error) {
-    this.error = error;
+    this.error = error.response.data;
   }
 
   getError() {
-    return this.error.response.data;
+    return this.error.message;
   }
 
   getStatusCode() {
-    return this.error.response.status;
+    return this.error.code;
   }
 
   isSuccess() {

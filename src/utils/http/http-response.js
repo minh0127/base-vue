@@ -2,7 +2,7 @@ import { CREATED_STATUS_CODE, SUCCESS_STATUS_CODE } from '@/utils/constants/stat
 
 export class HttpResponse {
   constructor(response) {
-    this.response = response.data;
+    this.response = response;
   }
 
   getResponse() {
@@ -15,7 +15,7 @@ export class HttpResponse {
   }
 
   getStatusCode() {
-    return this.response.status;
+    return this.response.code;
   }
 
   isSuccess() {
